@@ -1,8 +1,7 @@
 namespace java org.asam.ods
 namespace cpp org.asam.ods
-
-
-
+namespace py ods
+namespace csharp Asam.ods
 
 /**
 * The ASAM ODS data types.
@@ -62,8 +61,8 @@ enum DataType {
 typedef string     T_STRING;
 typedef bool       T_BOOLEAN;
 typedef i16        T_SHORT;
-typedef double     T_FLOAT;
-typedef byte       T_BYTE;
+typedef double     T_FLOAT; //Thrift does not support float data type, its parent type(double) is used
+typedef byte       T_BYTE; //NEED REVIEW - because T_BYTE is unsigned 8-bit type but byte in thrift is signed
 typedef i64        T_LONG;
 typedef double     T_DOUBLE;
 typedef T_STRING   T_DATE;
