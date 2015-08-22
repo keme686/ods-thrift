@@ -23,12 +23,13 @@ Benchmarks serializers
 <li>no manual optimizations.</li>
 <li>schema is known in advance (pre registration or even class generation). (Not all might make use of that)</li>
 </ul>
-<b>Ser Time+Deser Time (ns)</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x54&chd=t:1810,2341|1074,1265&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,3606&chxr=1,0,3606&chxt=y,x&chxl=0:|thrift|protobuf'/>
-<br clear='all' /><b>Size, Compressed size [light] in bytes</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x54&chd=t:149,197|90,152&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,349&chxr=1,0,349&chxt=y,x&chxl=0:|thrift|protobuf'/>
+<b>Ser Time+Deser Time (ns)</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x74&chd=t:17496,18473,19518|10260,12040,11448&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,30966&chxr=1,0,30966&chxt=y,x&chxl=0:|thrift|thrift-compact|protobuf'/>
+<br clear='all' /><b>Size, Compressed size [light] in bytes</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x74&chd=t:654,639,717|1544,1571,2518&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,3235&chxr=1,0,3235&chxt=y,x&chxl=0:|thrift|thrift-compact|protobuf'/>
 <br clear='all' />
 <pre>                                   create     ser   deser   total   size  +dfl
-protobuf                              183    1810    1075    2884    239   149
-thrift                                148    2341    1266    3606    349   197
+protobuf                             1484   17496   10260   27756   2198   654
+thrift-compact                       1518   18473   12040   30513   2210   639
+thrift                               1412   19518   11449   30966   3235   717
 </pre>
 
 
@@ -52,12 +53,13 @@ Contains serializer(-configurations)
 <ul><li>Only cycle free tree structures. An object referenced twice will be serialized twice.</li>
 <li>schema is known in advance (pre registration, intermediate message description languages, class generation).</li>
 </ul>
-<b>Ser Time+Deser Time (ns)</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x54&chd=t:1810,2341|1074,1265&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,3606&chxr=1,0,3606&chxt=y,x&chxl=0:|thrift|protobuf'/>
-<br clear='all' /><b>Size, Compressed size [light] in bytes</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x54&chd=t:149,197|90,152&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,349&chxr=1,0,349&chxt=y,x&chxl=0:|thrift|protobuf'/>
+<b>Ser Time+Deser Time (ns)</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x74&chd=t:17496,18473,19518|10260,12040,11448&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,30966&chxr=1,0,30966&chxt=y,x&chxl=0:|thrift|thrift-compact|protobuf'/>
+<br clear='all' /><b>Size, Compressed size [light] in bytes</b><br><img src='https://chart.googleapis.com/chart?cht=bhs&chs=600x74&chd=t:654,639,717|1544,1571,2518&chco=5d99f9,4d89f9&chdlp=t&chbh=15&chds=0,3235&chxr=1,0,3235&chxt=y,x&chxl=0:|thrift|thrift-compact|protobuf'/>
 <br clear='all' />
 <pre>                                   create     ser   deser   total   size  +dfl
-protobuf                              183    1810    1075    2884    239   149
-thrift                                148    2341    1266    3606    349   197
+protobuf                             1484   17496   10260   27756   2198   654
+thrift-compact                       1518   18473   12040   30513   2210   639
+thrift                               1412   19518   11449   30966   3235   717
 </pre>
 
 
@@ -103,14 +105,16 @@ shows performance vs convenience of manually-selected libs.
 
 
 <pre>                                   create     ser   deser   total   size  +dfl
-protobuf                              183    1810    1075    2884    239   149
-thrift                                148    2341    1266    3606    349   197
+protobuf                             1484   17496   10260   27756   2198   654
+thrift-compact                       1518   18473   12040   30513   2210   639
+thrift                               1412   19518   11449   30966   3235   717
 </pre>
 
 
 
 <pre>                                   Effort          Format         Structure  Misc
 protobuf                           CLASSES_KNOWN   BIN_CROSSLANG  FLAT_TREE  []                                                          
+thrift-compact                     CLASSES_KNOWN   BIN_CROSSLANG  FLAT_TREE  []                                                          
 thrift                             CLASSES_KNOWN   BIN_CROSSLANG  FLAT_TREE  []                                                          
 </pre>
 
